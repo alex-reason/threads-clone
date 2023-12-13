@@ -1,7 +1,7 @@
 import { ProfileHeaderProps } from "@/lib/interfaces"
 import Image from "next/image"
 
-const ProfileHeader = ({ accountId, authUserId, name, username, imgUrl, bio }: ProfileHeaderProps) => {
+const ProfileHeader = ({ accountId, authUserId, name, username, imgUrl, bio, type }: ProfileHeaderProps) => {
     return (
         <div className="flex w-full flex-col justify-start">
             <div className="flex-centered justify-between">

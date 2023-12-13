@@ -11,6 +11,13 @@ export interface AccountProps {
     };
     btnTitle: string;
 };
+export interface DeleteThreadProps {
+    threadId: string;
+    currentUserId: string;
+    authorId: string;
+    parentId: string | null;
+    isComment?: boolean;
+};
 
 export interface UserActionUpdateParams {
     userId: string,
@@ -71,6 +78,17 @@ export interface UserCardProps {
     personType: string;
 };
 
+export interface CommunityCardProps {
+    id: string;
+    name: string;
+    username: string;
+    imgUrl: string;
+    bio: string;
+    members: {
+        image: string;
+    }[];
+};
+
 // for liking thread function
 export interface UpdateThreadParams {
     threadId: string,
@@ -89,7 +107,8 @@ export interface ProfileHeaderProps {
     name: string,
     username: string,
     imgUrl: string,
-    bio: string
+    bio: string,
+    type?: "User" | "Community"
 }
 
 export interface ThreadsTabProps {

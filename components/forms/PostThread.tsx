@@ -8,10 +8,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { ThreadValidation } from '@/lib/validations/thread';
 import { createThread } from '@/lib/actions/thread.actions';
+import { useOrganization } from '@clerk/nextjs';
 
 function PostThread({ userId }: { userId: string }) {
     const router = useRouter();
     const pathname = usePathname();
+
+    const { organization } = useOrganization()
 
     const form = useForm({
         resolver: zodResolver(ThreadValidation),
@@ -22,15 +25,14 @@ function PostThread({ userId }: { userId: string }) {
     });
 
     const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
-        await createThread(
-            {
-                text: values.thread,
-                author: userId,
-                communityId: null,
-                path: pathname
-            }
-        )
+        await createThread({
+            text: values.thread,
+            author: userId,
+            communityId: organization ? organization.id : null, 
+            path: pathname,
+        })
         router.push('/')
+
     }
 
     return (

@@ -20,7 +20,6 @@ const Page = async ({ params }: { params: { id: string } }) => {
         <section className="relative">
             <div>
                 <ThreadCard
-                    key={thread._id}
                     id={thread._id}
                     currentUserId={user.id}
                     parentId={thread.parentId}

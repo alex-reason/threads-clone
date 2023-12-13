@@ -25,22 +25,21 @@ const Page = async () => {
               {
                 activity.map((item) => (
                   <>
-                  <Link href={`/thread/${item.parentId}`} key={item.id}>
-                    <article className="activity-card">
-                      <Image
-                        src={item.author.image}
-                        alt={`${item.author.name} profile picture`}
-                        width={20}
-                        height={20}
-                        className="rounded-full rounded-cover w-6 h-6 bg-[#f2f2f2]"
-                      />
-                      <p className="!text-small-regular text-light-1 ">
-                        <span className="mr-1 text-primary-500">{item.author.name}</span>
-                        {" "}replied to your thread
-                       
-                      </p>
-                    </article>
-                  </Link>
+                    <Link href={`/thread/${item.parentId}`} key={item.id}>
+                      <article className="activity-card">
+                        <Image
+                          src={item.author.image}
+                          alt={`${item.author.name} profile picture`}
+                          width={20}
+                          height={20}
+                          className="rounded-full rounded-cover w-6 h-6 bg-[#f2f2f2]"
+                        />
+                        <p className="!text-small-regular text-light-1 ">
+                          <span className="mr-1 text-primary-500">{item.author.name}</span>
+                          {" "}replied to your thread
+                        </p>
+                      </article>
+                    </Link>
 
                   </>
                 ))}

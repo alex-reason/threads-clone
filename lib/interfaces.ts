@@ -43,6 +43,11 @@ export interface ThreadActionCreateParams {
     path: string,
 };
 
+export interface PaginationProps {
+    pageNumber: number;
+    isNext: boolean;
+    path: string;
+};
 
 export interface ThreadCardProps {
     id: string;

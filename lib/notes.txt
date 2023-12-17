@@ -1,0 +1,3 @@
+Functions to fix:
+1. add like Functions
+3. add search function
